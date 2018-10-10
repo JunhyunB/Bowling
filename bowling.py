@@ -9,7 +9,6 @@ radius = 0.1085 # [meter]
 g = 9.8 # [m/s^2]
 I = 2 / 5 * mass * radius * radius # inertia of sphere
 u_k = 0.2 # friction coeff.
-
 t = 0.01 # time slice = 0.01 [sec]
 
 x_position = 0
@@ -29,7 +28,7 @@ y_vel = 0
 
 # initial angular vel.
 x_ang = 7
-y_ang = 10
+y_ang = 12
 
 # array
 # velocity
@@ -150,15 +149,6 @@ ax.set_ylim([-1,1])
 
 plt.title("Bowling Lane")
 plt.plot(x,y)
-plt.show()
-
-plt.plot(x_)
-plt.show()
-
-plt.plot(y_)
-plt.show()
-
-plt.plot(test)
 plt.show()
 
 ## 문제점 : y축 자꾸 양수 쭊쭊 올라감...
