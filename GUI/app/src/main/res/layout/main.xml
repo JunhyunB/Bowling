@@ -63,34 +63,46 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="312dp"
-                android:layout_height="43dp"
-                android:background="@drawable/button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
 
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="153dp"
+                android:background="@drawable/button"
                 android:fontFamily="@font/caesar_dressing"
                 android:text="Mini Game"
                 android:textSize="18sp"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="245dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="312dp"
-                android:layout_height="43dp"
-                android:background="@drawable/button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
 
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="19dp"
+                android:background="@drawable/button"
                 android:fontFamily="@font/caesar_dressing"
                 android:text="Swing Practice"
                 android:textSize="18sp"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="183dp" />
+                app:layout_constraintBottom_toTopOf="@+id/button3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button5" />
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="80dp"
-                android:layout_height="47dp"
-                android:background="@drawable/button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
 
+                android:layout_marginBottom="69dp"
+                android:background="@drawable/button"
                 android:fontFamily="@font/caesar_dressing"
                 android:shadowColor="@color/colorPrimaryDark"
                 android:shadowDx="10dp"
@@ -98,14 +110,18 @@
                 android:shadowRadius="10dp"
                 android:text="Enter"
                 android:textSize="18sp"
-                tools:layout_editor_absoluteX="252dp"
-                tools:layout_editor_absoluteY="67dp" />
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <EditText
                 android:id="@+id/editText"
                 style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-                android:layout_width="215dp"
+                android:layout_width="213dp"
                 android:layout_height="46dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="17dp"
                 android:background="@color/colorPrimaryDark"
                 android:ems="10"
                 android:hint="Ball Weight"
@@ -113,14 +129,19 @@
                 android:paddingLeft="10dp"
                 android:textColor="@android:color/background_light"
                 android:textColorHint="@color/colorPrimary"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="68dp" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/button5"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="wrap_content"
-                android:layout_height="5dp"
-                android:background="@drawable/drop_shadow" />
+                android:layout_height="5"
+                android:layout_marginBottom="62dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintBottom_toTopOf="@+id/button5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
