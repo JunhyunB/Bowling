@@ -125,7 +125,7 @@ public class Bowling {
             x_.add(x__);
             y_.add(y__);
         }
-
+        
         System.out.println("Calculating completed!");
     }
 }
