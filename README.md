@@ -5,7 +5,7 @@
 ------
 Android Studio를 이용하여 Application의 GUI를 전반적으로 구현함.
 
-![layout](GUI/layout.png)  
+![layout](./GUI/layout.png)  
 
 ## 2. Model
 --------
