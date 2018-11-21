@@ -1,9 +1,12 @@
 # Android Studio를 이용하여 Bowling Application 구현하기
 =======================================================================
+# Table of Contents  
+- [1. GUI](#1-gui)
+- [2. Model](#2-model)
 
 ## 1. GUI
 ------
-Android Studio를 이용하여 Application의 GUI를 전반적으로 구현함.
+Android Studio를 이용하여 아래 사진과 같이 Application의 GUI를 전반적으로 구현함.  
 
 ![layout](./GUI/layout.png)  
 
