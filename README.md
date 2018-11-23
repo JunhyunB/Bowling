@@ -27,3 +27,30 @@ where ***u(t)*** is unit step function.
 현재 초기값으로 공의 초기 속도 및 방향 등을 임의로 입력하였는데,  
 추후에 이를 스마트폰의 **가속도 센서, 자이로스코프 센서, 지자기 센서**   
 이 3가지 센서를 이용하여 초기값들을 계산할 예정이다.
+
+아래는 임의로 parameter 들을 지정하여 볼링공의 궤적을 계산한 예시이다. (python)
+```python
+# Parameters ...
+mass = 7 # [kg]
+radius = 0.1085 # [meter]
+g = 9.8 # [m/s^2]
+I = 2 / 5 * mass * radius * radius # inertia of sphere
+u_k = 0.2 # friction coeff.
+t = 0.01 # time slice = 0.01 [sec]
+
+x_position = 0
+y_position = 0
+
+theta = 8 # throwing angle [degree]
+angle = theta * math.pi / 180 # [rad]
+
+# initial velocity, calculated by sensing values
+x_vel = 6 # average...
+y_vel = 0
+
+# initial angular vel.
+x_ang = 7
+y_ang = 12
+```
+
+![lane](Model/example.png)
