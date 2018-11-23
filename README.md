@@ -1,4 +1,6 @@
 # Android Studio를 이용하여 Bowling Application 구현하기
+2018 2학기 모바일앱프로그래밍 팀 프로젝트로 볼링 시뮬레이션 어플리케이션을 구현하기 위한 저장소입니다.  
+크게 GUI구현 파트와 물리모델 구현 파트로 나뉘어집니다.
 
 # Table of Contents  
 - [1. GUI](#1-gui)
@@ -8,6 +10,7 @@
 ## 1. GUI
 ------
 Android Studio를 이용하여 아래 사진과 같이 Application의 GUI를 전반적으로 구현함.  
+**Constraint Layout**을 이용하여 다양한 해상도에서도 깨짐 없이 지원할 수 있게 구현함.
 
 ![layout](./GUI/layout.png)  
 
@@ -18,7 +21,7 @@ Android Studio를 이용하여 아래 사진과 같이 Application의 GUI를 전
 ![equation1](Model/eq1.gif)
 ![equation2](Model/eq2.gif)
 ![equation3](Model/eq3.gif)  
-where ***u(t)*** is unit step function.  
+#### where ***u(t)*** is unit step function.  
 
 첫 번째 식을 마찰과 구름을 고려하여 물리적으로 유도한 후, 변위를 구하기 위해 이를 적분하고, 볼링공의 시간에 따른 회전각 역시 마찬가지로 유도한다.  
 이를 python 코드로 작성하였고, java로 변환하였다.  
