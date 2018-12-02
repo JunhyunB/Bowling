@@ -2,34 +2,34 @@ import java.util.ArrayList;
 
 public class Bowling {
     public static void main(String[] args) {
-        double mass = 7; // [kg]
-        double radius = 0.1085; // [kg]
-        double I = 2 / 5 * mass * radius * radius; // Inertia of sphere
-        double g = 9.8; // [m/s^2]
-        double u_k = 0.2; // friction coeff.
-        double t = 0.01; // time slice = 0.01 [sec]
+        float mass = 7; // [kg]
+        float radius = 0.1085; // [kg]
+        float I = 2 / 5 * mass * radius * radius; // Inertia of sphere
+        float g = 9.8; // [m/s^2]
+        float u_k = 0.2; // friction coeff.
+        float t = 0.01; // time slice = 0.01 [sec]
 
-        double x_position = 0;
-        double y_position = 0;
+        float x_position = 0;
+        float y_position = 0;
 
-        double theta = 8; // throwing angle [degree]
-        double PI = 3.141592; 
-        double angle = theta * PI / 180;
+        float theta = 8; // throwing angle [degree]
+        float PI = 3.141592; 
+        float angle = theta * PI / 180;
 
-        ArrayList x = new ArrayList<Double>();
+        ArrayList x = new ArrayList<Float>();
         x.add(x_position);
 
-        ArrayList y = new ArrayList<Double>();
+        ArrayList y = new ArrayList<Float>();
         y.add(y_position);
 
         // initial velocity, calculated by sensing values
-        double x_vel = 6;
-        double y_vel = 0;
+        float x_vel = 6;
+        float y_vel = 0;
 
-        double x_ang = 7;
-        double y_ang = 12;
-        double crit1 = 0;
-        double crit2 = 0;
+        float x_ang = 7;
+        float y_ang = 12;
+        float crit1 = 0;
+        float crit2 = 0;
         int count = 0;
         int count2 = 0;
 
@@ -112,15 +112,15 @@ public class Bowling {
             y.add(y_position);
         }
 
-        ArrayList x_ = new ArrayList<Double>();
-        ArrayList y_ = new ArrayList<Double>();
+        ArrayList x_ = new ArrayList<Float>();
+        ArrayList y_ = new ArrayList<Float>();
 
-        double x__;
-        double y__;
+        float x__;
+        float y__;
         
         for(int i=0; i<y.size(); i++){
-            x__ = Math.cos(angle) * (double) x.get(i) + Math.sin(angle) * (double) y.get(i);
-            y__ = -1 * Math.sin(angle) * (double) x.get(i) + Math.cos(angle) * (double) y.get(i);
+            x__ = Math.cos(angle) * (float) x.get(i) + Math.sin(angle) * (float) y.get(i);
+            y__ = -1 * Math.sin(angle) * (float) x.get(i) + Math.cos(angle) * (float) y.get(i);
 
             x_.add(x__);
             y_.add(y__);
