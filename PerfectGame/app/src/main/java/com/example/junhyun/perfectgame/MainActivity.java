@@ -15,7 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    int weightcheck = 0;
+    int weightcheck = 0; // 0이면 error, 1이면 실행!
+    int gamecheck = 0; // 0이면 practice, 1이면 game!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 float mass = Float.valueOf(strText).floatValue();
                 if(weightcheck == 1) {
+                    gamecheck = 0;
                     Intent intent = new Intent(getApplicationContext(), touch_main.class);
                     intent.putExtra("weight", mass);
+                    intent.putExtra("gamecheck", gamecheck);
                     startActivity(intent);
                 }
                 else {
@@ -80,8 +83,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 float mass = Float.valueOf(strText).floatValue();
                 if(weightcheck == 1) {
+                    gamecheck = 1;
                     Intent intent = new Intent(getApplicationContext(), touch_main.class);
                     intent.putExtra("weight", mass);
+                    intent.putExtra("gamecheck", gamecheck);
                     startActivity(intent);
                 }
                 else {

@@ -1,11 +1,13 @@
 package com.example.junhyun.perfectgame;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,6 +15,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,8 @@ import java.util.List;
 public class touch_main extends AppCompatActivity {
     SoundPool soundpool;
     int sound;
+    ArrayList x_result = new ArrayList<Float>();
+    ArrayList y_result = new ArrayList<Float>();
 
     public List physics(float mass, float theta,
                            float x_vel, float y_vel,
@@ -148,6 +153,7 @@ public class touch_main extends AppCompatActivity {
         return tempList;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceStace) {
         super.onCreate(savedInstanceStace);
@@ -155,10 +161,12 @@ public class touch_main extends AppCompatActivity {
 
         Intent intent = getIntent();
         float mass = intent.getExtras().getFloat("mass");
+        int gamecheck = intent.getExtras().getInt("gamecheck"); // swing practice 와 mini game 을 구분해야함.
 
         ImageView B1 = (ImageView) findViewById(R.id.touchB1);
         ImageView B2 = (ImageView) findViewById(R.id.touchB2);
         final Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
+
         B1.startAnimation(alpha);
         B2.startAnimation(alpha);
 
@@ -170,9 +178,27 @@ public class touch_main extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener()      {
             @Override
             public void onClick(View v) {
+
+                //Background thread = new Background();
+                //thread.start();
+                List L = physics(7, 8, 6, 0, 7, 12);
+                x_result.add(L.get(0));
+                y_result.add(L.get(1));
+
                 Intent intent = new Intent(getApplicationContext(), lane.class);
+                intent.putExtra("x_result", x_result);
+                intent.putExtra("y_result", y_result);
+
                 startActivity(intent);
             }
         });
+    }
+
+    class Background extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            // Thread code 작성하기.
+        }
     }
 }
