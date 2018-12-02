@@ -42,10 +42,18 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener()      {
             @Override
             public void onClick(View v) {
+                String strText = weight.getText().toString();
 
+                try {
+                    Double.parseDouble(strText);
+                }
+                catch(NumberFormatException e){
+                    weightcheck = 0;
+                    Toast.makeText(getApplicationContext(),"공 무게는 실수를 입력해야 합니다.",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                float mass = Float.valueOf(strText).floatValue();
                 if(weightcheck == 1) {
-                    String strText = weight.getText().toString();
-                    float mass = Float.valueOf(strText).floatValue();
                     Intent intent = new Intent(getApplicationContext(), touch_main.class);
                     intent.putExtra("weight", mass);
                     startActivity(intent);
@@ -60,10 +68,18 @@ public class MainActivity extends AppCompatActivity {
         game.setOnClickListener(new View.OnClickListener()      {
             @Override
             public void onClick(View v) {
+                String strText = weight.getText().toString();
 
+                try {
+                    Double.parseDouble(strText);
+                }
+                catch(NumberFormatException e){
+                    weightcheck = 0;
+                    Toast.makeText(getApplicationContext(),"공 무게는 실수를 입력해야 합니다.",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                float mass = Float.valueOf(strText).floatValue();
                 if(weightcheck == 1) {
-                    String strText = weight.getText().toString();
-                    float mass = Float.valueOf(strText).floatValue();
                     Intent intent = new Intent(getApplicationContext(), touch_main.class);
                     intent.putExtra("weight", mass);
                     startActivity(intent);
@@ -73,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     public void Dialog(){
