@@ -9,6 +9,7 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -176,23 +177,27 @@ public class touch_main extends AppCompatActivity {
 
         ImageButton button2 = (ImageButton) findViewById(R.id.touchB1);
         button2.setOnClickListener(new View.OnClickListener()      {
-            @Override
-            public void onClick(View v) {
+        @Override
+        public void onClick(View v) {
 
-                //Background thread = new Background();
-                //thread.start();
-                List L = physics(7, 8, 6, 0, 7, 12);
-                x_result.add(L.get(0));
-                y_result.add(L.get(1));
+            //Background thread = new Background();
+            //thread.start();
 
-                Intent intent = new Intent(getApplicationContext(), lane.class);
-                intent.putExtra("x_result", x_result);
-                intent.putExtra("y_result", y_result);
+            List L = physics(7, 8, 6, 0, 7, 12);
+            x_result = (ArrayList<Float>)L.get(0);
+            y_result = (ArrayList<Float>)L.get(1);
 
-                startActivity(intent);
-            }
-        });
-    }
+            Intent intent = new Intent(getApplicationContext(), lane.class);
+
+            Bundle b = new Bundle();
+            b.putParcelableArrayList("x_result", x_result);
+            b.putParcelableArrayList("y_result", y_result);
+            intent.putExtra("bundle", b);
+
+            startActivity(intent);
+        }
+    });
+}
 
     class Background extends Thread {
         @Override
