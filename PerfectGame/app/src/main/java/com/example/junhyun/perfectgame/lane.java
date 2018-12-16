@@ -81,7 +81,7 @@ public class lane extends AppCompatActivity {
                     public void run() {
                         for (int i = 0; i < x_.size()-1; i++) {
                             try {
-                                Thread.sleep(20);
+                                Thread.sleep(10);
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
