@@ -490,7 +490,7 @@ public class touch_main extends AppCompatActivity {
                         y_gyro = new ArrayList<Float>();
                         z_gyro = new ArrayList<Float>();
 
-                        List L = physics(mass, 8, (float)predicts[0], (float)predicts[1]/4, (float)predicts[2], (float)predicts[3]);
+                        List L = physics(mass, 5, (float)predicts[0]*3+0.5f, (float)predicts[1]*0.06f, (float)predicts[2]*0.2f, (float)predicts[3]*3-2.9f);
                         //List L = physics(12, 0, 7, 0, 0, 0);
 
                         x_result = (ArrayList<Float>)L.get(0);
