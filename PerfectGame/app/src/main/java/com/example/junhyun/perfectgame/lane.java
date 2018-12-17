@@ -65,10 +65,7 @@ public class lane extends AppCompatActivity {
 
         final ArrayList y_ = b1.getParcelableArrayList("x_result");
         final ArrayList x_ = b1.getParcelableArrayList("y_result");
-        for(int i=0;i<x_.size();i++){
-            Log.d("x값:",String.valueOf(x_.get(i)));
-            Log.d("y값:",String.valueOf(y_.get(i)));
-        }
+
 
         imageView = findViewById(R.id.temp);
         ViewTreeObserver viewTreeObserver = this.imageView.getViewTreeObserver();
@@ -141,6 +138,8 @@ public class lane extends AppCompatActivity {
 
             }
         });
+
+
     }
     public int[] collision(ImageView a, ImageView b, int count, int on){
         float bl = a.getY();

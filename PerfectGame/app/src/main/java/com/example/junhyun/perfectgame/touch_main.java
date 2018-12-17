@@ -1,27 +1,21 @@
 package com.example.junhyun.perfectgame;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import  org.apache.commons.lang3.ArrayUtils;
 
@@ -32,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class touch_main extends AppCompatActivity {
+    int score = 0;
+    int gamecount = 0;
 
     double _600_32[][] = new double[600][32];
 
@@ -428,7 +424,10 @@ public class touch_main extends AppCompatActivity {
 
         Intent intent = getIntent();
         final float mass = intent.getExtras().getFloat("mass");
-        int gamecheck = intent.getExtras().getInt("gamecheck"); // swing practice 와 mini game 을 구분해야함.
+        final int gamecheck = intent.getExtras().getInt("gamecheck"); // swing practice 와 mini game 을 구분해야함. 1 이면 미니게임
+        gamecount = intent.getExtras().getInt("gamecount");
+        if(gamecount == 1)
+            score = intent.getExtras().getInt("score");
 
         ImageView B1 = (ImageView) findViewById(R.id.touchB1);
         ImageView B2 = (ImageView) findViewById(R.id.touchB2);
@@ -465,16 +464,14 @@ public class touch_main extends AppCompatActivity {
                         break;
 
                     case MotionEvent.ACTION_MOVE:
-                        //SL.onSensorChanged(); // 이건 뭐지?
                         mSensorManager.registerListener(mAccelLis ,mAccelerometer, SensorManager.SENSOR_DELAY_UI);
                         mSensorManager.registerListener(mMagLis, mMagneticField, SensorManager.SENSOR_DELAY_UI);
                         mSensorManager.registerListener(mGyroLis, mGgyroSensor, SensorManager.SENSOR_DELAY_UI);
                         String result;
                         result = "Azimut:"+mAzimut+"\n"+"Pitch:"+mPitch+"\n"+"Roll:"+mRoll+"\n"+"gyroX:"+gyroX+"\n"+"gyroY:"+gyroY+"\n"+"gyroZ:"+gyroZ+"\n";
-                        //result = "Azimut:"+mAzimut+"\n"+"Pitch:"+mPitch.get(i)+"\n"+"Roll:"+mRoll.get(i); //이 부분이 어레이로 받아서 시도했는데 안되는 부분이에요 ㅠ
                         mResultView.setText(result);
 
-                        //i++; //어레이 실패
+
                         break;
 
                     case MotionEvent.ACTION_UP:
@@ -495,13 +492,31 @@ public class touch_main extends AppCompatActivity {
 
                         x_result = (ArrayList<Float>)L.get(0);
                         y_result = (ArrayList<Float>)L.get(1);
-                        Intent intent = new Intent(getApplicationContext(), lane.class);
-                        Bundle b = new Bundle();
-                        b.putParcelableArrayList("x_result", x_result);
-                        b.putParcelableArrayList("y_result", y_result);
-                        intent.putExtra("bundle", b);
-                        startActivity(intent);
-                        break;
+
+
+                        if(gamecheck  ==  0) {
+                            Intent intent = new Intent(getApplicationContext(), lane.class);
+                            Bundle b = new Bundle();
+                            b.putParcelableArrayList("x_result", x_result);
+                            b.putParcelableArrayList("y_result", y_result);
+                            intent.putExtra("bundle", b);
+                            startActivity(intent);
+                            break;
+                        }
+
+
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), lane2.class);
+                            Bundle b = new Bundle();
+                            b.putParcelableArrayList("x_result", x_result);
+                            b.putParcelableArrayList("y_result", y_result);
+                            intent.putExtra("bundle", b);
+                            intent.putExtra("score", score);
+                            intent.putExtra("gamecount", gamecount);
+                            startActivity(intent);
+                            break;
+                        }
+
 
                     default:
                         break;
@@ -583,14 +598,6 @@ public class touch_main extends AppCompatActivity {
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-        }
-    }
-
-    class Background extends Thread {
-        @Override
-        public void run() {
-            super.run();
-            // Thread code 작성하기.
         }
     }
 }

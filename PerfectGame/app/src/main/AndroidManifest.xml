@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".touch_main" />
-        <activity android:name=".lane"></activity>
+        <activity android:name=".lane"/>
+        <activity android:name=".lane2"/>
     </application>
 
 </manifest>
