@@ -88,33 +88,43 @@ public class lane extends AppCompatActivity {
                                         temp = collision(imageView, pin1, count, on1);
                                         count = temp[0];
                                         on1 = temp[1];
+                                        changeColor(pin1, on1);
                                         temp = collision(imageView, pin2, count, on2);
                                         count = temp[0];
                                         on2 = temp[1];
+                                        changeColor(pin2, on2);
                                         temp = collision(imageView, pin3, count, on3);
                                         count = temp[0];
                                         on3 = temp[1];
+                                        changeColor(pin3, on3);
                                         temp = collision(imageView, pin4, count, on4);
                                         count = temp[0];
                                         on4 = temp[1];
+                                        changeColor(pin4, on4);
                                         temp = collision(imageView, pin5, count, on5);
                                         count = temp[0];
                                         on5 = temp[1];
+                                        changeColor(pin5, on5);
                                         temp = collision(imageView, pin6, count, on6);
                                         count = temp[0];
                                         on6 = temp[1];
+                                        changeColor(pin6, on6);
                                         temp = collision(imageView, pin7, count, on7);
                                         count = temp[0];
                                         on7 = temp[1];
+                                        changeColor(pin7, on7);
                                         temp = collision(imageView, pin8, count, on8);
                                         count = temp[0];
                                         on8 = temp[1];
+                                        changeColor(pin8, on8);
                                         temp = collision(imageView, pin9, count, on9);
                                         count = temp[0];
                                         on9 = temp[1];
+                                        changeColor(pin9, on9);
                                         temp = collision(imageView, pin10, count, on10);
                                         count = temp[0];
                                         on10 = temp[1];
+                                        changeColor(pin10, on10);
                                             //t.setText("성공");
 
 
@@ -163,5 +173,11 @@ public class lane extends AppCompatActivity {
             }
         }
         return new int[] {count, on};
+    }
+
+    public void changeColor(ImageView a, int on) {
+        if(on == 0) {
+            a.setImageResource(R.drawable.black);
+        }
     }
 }
