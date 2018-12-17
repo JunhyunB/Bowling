@@ -127,7 +127,7 @@ public class lane2 extends AppCompatActivity {
                                             //t.setText("성공");
 
 
-                                            t.setText("Score : " + Integer.toString(score));
+                                            t.setText("Player1 : " + Integer.toString(score));
 
                                             score = count;
 
@@ -202,8 +202,8 @@ public class lane2 extends AppCompatActivity {
                                             //t.setText("성공");
 
 
-                                            t.setText("Score : " + Integer.toString(score));
-                                            t2.setText("Score : " + Integer.toString(count));
+                                            t.setText("Player1 : " + Integer.toString(score));
+                                            t2.setText("Player2 : " + Integer.toString(count));
 
 
                                         }
